@@ -6,15 +6,18 @@ import { useSelector } from 'react-redux';
 import { auth } from '../Firebase/Firebase';
 import { MdDelete } from "react-icons/md";
 import useDeletePost from '../Hooks/useDeletePost';
+import Comment from './Comment';
+import CommenrFooter from './CommenrFooter';
+import usePostsStore from '../store/postStore';
 
 
 function ProfilePost({post}) {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const demo = useSelector(state=>state.user)
     const authUser = JSON.parse(demo)
-    console.log(authUser);
-    console.log('post',post);
     const {isDeleting,deleteUserPost} = useDeletePost()
+    const posts = usePostsStore(state=>state.posts)
+    console.log("posts",posts);
   return (
     <>
     
@@ -59,6 +62,7 @@ function ProfilePost({post}) {
 							mx={"auto"}
 							maxH={"90vh"}
 							minH={"50vh"}
+                            direction={{base:'column' , md:'row'}}
 						>
 							<Flex
 								borderRadius={4}
@@ -96,6 +100,24 @@ function ProfilePost({post}) {
                                         <Divider my={4} bg={"gray.500"} />
 
                             <VStack w='full' alignItems={"start"} maxH={"350px"} overflowY={"auto"}>
+                                <Comment
+                                profilePic={'https://www.programiz.com/python-programming/online-compiler/assets/logos/logo-inverted.svg'}
+                                createdAt={'1 day ago'}
+                                username={'sriram'}
+                                text={'nice pic'}
+                                />
+                                <Comment
+                                profilePic={'https://www.programiz.com/python-programming/online-compiler/assets/logos/logo-inverted.svg'}
+                                createdAt={'1 day ago'}
+                                username={'sriram'}
+                                text={'nice pic'}
+                                />
+                                <Comment
+                                profilePic={'https://www.programiz.com/python-programming/online-compiler/assets/logos/logo-inverted.svg'}
+                                createdAt={'1 day ago'}
+                                username={'sriram'}
+                                text={'nice pic'}
+                                />
                             {/* CAPTION */}
                             {/* {post.caption && <Caption post={post} />} */}
                             {/* COMMENTS */}
@@ -105,7 +127,7 @@ function ProfilePost({post}) {
                         </VStack>
                         <Divider my={4} bg={"gray.8000"} />
 
-                        {/* <PostFooter isProfilePage={true} post={post} /> */}
+                        <CommenrFooter post={post}/>
                     </Flex>
                 </Flex>
           </ModalBody>
