@@ -21,7 +21,7 @@ function PostFooter({username}) {
         <Box cursor={'pointer'} fontSize={18}  >
             <CommentLogo />
         </Box>
-      </Flex>
+      </Flex> 
       <Text fontWeight={800} fontSize={'sm'}>
         {likes} likes
       </Text>

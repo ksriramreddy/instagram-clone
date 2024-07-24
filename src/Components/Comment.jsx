@@ -2,17 +2,17 @@ import { Avatar, Flex,Text } from '@chakra-ui/react'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function Comment({createdAt,username,profilePic,text}) {
+function Comment({comment}) {
   return (
    <Flex gap={4}>
-    <Avatar src={profilePic} name={username} size={'sm'}/>
+    {/* <Avatar src={profilePic} name={username} size={'sm'}/> */}
     <Flex direction={'column'}>
         <Flex gap={2} >
-            <Text fontWeight={'bold'} fontSize={12}>{username}</Text>
-            <Text fontSize={14}>{text}</Text>
+            {/* <Text fontWeight={'bold'} fontSize={12}>{username}</Text> */}
+            <Text fontSize={14}>{comment.comment}</Text>
         </Flex>
         <Text fontSize={12} color={'gray'}>
-            {createdAt}
+            {comment.createdAt}
         </Text>
     </Flex>
    </Flex>

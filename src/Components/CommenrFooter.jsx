@@ -35,7 +35,10 @@ function CommenrFooter({post}) {
         </Text>
          <Flex gap={1}>
             <Input type='text' border={'1px solid white'} borderBottom={'2px solid white'} value={comment} onChange={(e)=>setComment(e.target.value)}/>
-            <Button isLoading={isCommenting} onClick={()=>handlePostComment(post.id,comment)}>
+            <Button isLoading={isCommenting} onClick={()=>{
+                handlePostComment(post.id,comment)
+                 setComment('')
+                 }}>
                 Post
             </Button>
          </Flex>

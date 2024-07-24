@@ -12,10 +12,10 @@ function usePostComment() {
     const authUser = JSON.parse(demo)
     const showToast = useShowToast()
     const addComment = usePostsStore(state=>state.addComment)
-    const posts = usePostsStore(state=>state.posts)
     const [isCommenting,setIsCommenting] = useState(false)
     const handlePostComment = async (postId,comment)=>{
         if(isCommenting) return
+        if(!comment) return showToast('Error','comment something to post...','error')
         if(!authUser) return showToast('Error','Please Login before commenting','error')
         setIsCommenting(true)
         const newComment ={

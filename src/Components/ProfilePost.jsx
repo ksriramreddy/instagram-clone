@@ -100,24 +100,11 @@ function ProfilePost({post}) {
                                         <Divider my={4} bg={"gray.500"} />
 
                             <VStack w='full' alignItems={"start"} maxH={"350px"} overflowY={"auto"}>
-                                <Comment
-                                profilePic={'https://www.programiz.com/python-programming/online-compiler/assets/logos/logo-inverted.svg'}
-                                createdAt={'1 day ago'}
-                                username={'sriram'}
-                                text={'nice pic'}
-                                />
-                                <Comment
-                                profilePic={'https://www.programiz.com/python-programming/online-compiler/assets/logos/logo-inverted.svg'}
-                                createdAt={'1 day ago'}
-                                username={'sriram'}
-                                text={'nice pic'}
-                                />
-                                <Comment
-                                profilePic={'https://www.programiz.com/python-programming/online-compiler/assets/logos/logo-inverted.svg'}
-                                createdAt={'1 day ago'}
-                                username={'sriram'}
-                                text={'nice pic'}
-                                />
+                                {
+                                    post.comments.map((comment,i)=>(
+                                        <Comment key={i} comment={comment}/>
+                                    ))
+                                }
                             {/* CAPTION */}
                             {/* {post.caption && <Caption post={post} />} */}
                             {/* COMMENTS */}
