@@ -21,7 +21,7 @@ function usePostComment() {
         const comment ={
             comment : comment,
             createdAt : Date.now(),
-            createdBy : authUser.userId,
+            createdBy : authUser.userId,    
             postId : postId
         }
     }
