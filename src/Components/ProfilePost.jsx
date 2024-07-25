@@ -17,7 +17,7 @@ function ProfilePost({post}) {
     const authUser = JSON.parse(demo)
     const {isDeleting,deleteUserPost} = useDeletePost()
     const posts = usePostsStore(state=>state.posts)
-    console.log("posts",posts);
+    // console.log("posts",posts);
   return (
     <>
     
