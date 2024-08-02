@@ -4,6 +4,7 @@ import useGetProfileById from '../Hooks/useGetProfileById';
 import {timeAgo} from '../utils/timeAgo'
 import { useSelector } from 'react-redux';
 import useFollowUser from '../Hooks/useFollowUser';
+import { Link } from 'react-router-dom';
 function PostHeader({createdBy,createdAt}) {
     const {isLoading,userProfile} = useGetProfileById(createdBy)
     const [toLoad,setToLoad] = useState(1)
@@ -13,15 +14,21 @@ function PostHeader({createdBy,createdAt}) {
     console.log(isFollowing);
     const handleClickFollow = async ()=>{
         await handleFollowUser()
-        location.reload()
+        this.forceUpdate()
     }
 
   return (
     <Flex alignItems={'center'} justifyContent={'space-between'} w={'full'} mb={2}>
         <Flex alignItems={'center'} gap={2}>
+            <Link to={`/${userProfile?.username}`}>
             <Avatar src={userProfile?.profilePicUrl } alt={'pic'} size={'sm'} />
+            </Link>
             <Flex fontSize={12} fontWeight={'bold'} gap={2}>
+                <Text>
+                <Link to={`/${userProfile?.username}`}>
                 {userProfile?.fullname }
+                </Link>
+                </Text>
                 <Box color={'gray.500'}>
                     {
                         // new Date(createdAt).toLocaleString('en-US', {

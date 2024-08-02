@@ -11,7 +11,7 @@ function PostFooter({username}) {
         setLikes(likes+1)}
     }
   return (
-    <Box mb={10}>
+    <Box mb={10} marginTop={'auto'}>
       <Flex alignItems={'center'} gap={4} pt={0} mb={2} mt={4}>
         <Box onClick={handleLike} cursor={'pointer'} fontSize={18}>
             {

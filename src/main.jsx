@@ -8,6 +8,7 @@ import {BrowserRouter} from 'react-router-dom'
 import {Provider} from 'react-redux'
 import { store } from './store/store.js'
 
+
 const styles = {
 	global: (props) => ({
 		body: {
@@ -25,12 +26,11 @@ const config = {
 // 3. extend the theme
 const theme = extendTheme({ config, styles });
 
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
 	<Provider store={store}>
 		<BrowserRouter>
-      <ChakraProvider>
+      <ChakraProvider theme={theme}>
         <App />
       </ChakraProvider>
     </BrowserRouter>
