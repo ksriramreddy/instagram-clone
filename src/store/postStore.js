@@ -17,7 +17,18 @@ const usePostsStore = create((set)=>({
             }
             return post
         })
+    })),
+    setLikes : (postId,usedId)=> set(state=>({
+        posts : state.posts.map(post=>{
+            if(post.id==postId){
+                return {
+                    ...post,
+                    likes : post.likes.includes(usedId)? post.likes.filter(like=>like!=usedId) : [...post.likes,usedId]
+                }
+            }
+        })
     }))
+    
 }))
 
 export default usePostsStore

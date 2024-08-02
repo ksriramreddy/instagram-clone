@@ -15,6 +15,7 @@ function useFollowUser(userId) {
     const dispatch = useDispatch()
 
     useEffect(()=>{
+        // if(!userId) return;
         if(userProfile){
             const  isFollowing = userProfile.following.includes(userId)
             // console.log('authusre',userProfile);
@@ -53,16 +54,16 @@ function useFollowUser(userId) {
                 dispatch(setUser(
                     JSON.stringify({
                         ...userProfile,
-                        following : [...userProfile.following,useId]
+                        following : [...userProfile.following,userId]
                     })
                 ))
                 localStorage.setItem('userInfo',JSON.stringify({
                     ...userProfile,
-                    following : [...userProfile.following,useId]
+                    following : [...userProfile.following,userId]
                 }))
                 setIsFollowing(true)
             }
-        } catch (error) {9
+        } catch (error) {
             // console.log("follow",error.message);
         }
         finally{

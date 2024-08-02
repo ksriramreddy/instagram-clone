@@ -4,7 +4,7 @@ import {getDoc,doc, Firestore} from 'firebase/firestore';
 import {firestore} from '../Firebase/Firebase'
 
 function useGetProfileById(userId) {
-    const [isLoading,setIsLoading] = useState(false);
+    const [isLoading,setIsLoading] = useState(true);
     const [userProfile, setUserProfile] = useState(null);
     const showToast = useShowToast();
     useEffect(()=>{

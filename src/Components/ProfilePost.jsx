@@ -1,4 +1,4 @@
-import { Avatar, Button, Divider, Flex, GridItem, Image, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, Text, useDisclosure, VStack } from '@chakra-ui/react';
+import { Avatar, Box, Button, Divider, Flex, GridItem, Image, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, Text, useDisclosure, VStack } from '@chakra-ui/react';
 import React from 'react';
 import{AiFillHeart} from 'react-icons/ai'
 import{FaComment} from 'react-icons/fa'
@@ -9,6 +9,7 @@ import useDeletePost from '../Hooks/useDeletePost';
 import Comment from './Comment';
 import CommenrFooter from './CommenrFooter';
 import usePostsStore from '../store/postStore';
+import Caption from './Caption';
 
 
 function ProfilePost({post}) {
@@ -49,6 +50,7 @@ function ProfilePost({post}) {
             </Flex>
         </Flex>
         <Image src={post.imageUrl} w={'100%'} h={'100%'} objectFit={'cover  '} />
+        
     </GridItem>
     <Modal isOpen={isOpen} onClose={onClose} isCentered={true} size={{base:'3xl',md:'5xl'}}>
         <ModalOverlay />
@@ -72,8 +74,13 @@ function ProfilePost({post}) {
 								flex={1.5}
 								justifyContent={"center"}
 								alignItems={"center"}
+                                direction={'column'}
 							>
-								<Image src={post.imageUrl} alt='profile post' />
+								<Image  src={post.imageUrl} alt='profile post' />
+                                {/* <Box width={'100%'}>
+
+                                {post.caption && <Caption post={post} />}
+                                </Box> */}
 							</Flex>
 							<Flex flex={1} flexDir={"column"} px={10} display={{ base: "none", md: "flex" }}>
 								<Flex alignItems={"center"} justifyContent={"space-between"}>
@@ -106,7 +113,7 @@ function ProfilePost({post}) {
                                     ))
                                 }
                             {/* CAPTION */}
-                            {/* {post.caption && <Caption post={post} />} */}
+                            {post.caption && <Caption post={post} />}
                             {/* COMMENTS */}
                             {/* {post.comments.map((comment) => (
                                 <Comment key={comment.id} comment={comment} />

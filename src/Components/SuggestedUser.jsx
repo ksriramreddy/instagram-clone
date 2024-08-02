@@ -2,19 +2,21 @@ import { Avatar, Box, Button, Flex ,VStack} from '@chakra-ui/react';
 import React, { useState } from 'react';
 import useFollowUser from '../Hooks/useFollowUser'
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const SuggestedUser = ({user,onClose,setUser}) => {
   const demo = useSelector(state=>state.user)
   const authUser = JSON.parse(demo)
   const [isFollowed,setIsFollowed] = useState(false)
   const {isFollowing,isUpdating,handleFollowUser} = useFollowUser(user.userId)
+
+  const dispatch = useDispatch()
   const onFollowUser = async ()=>{
-    handleFollowUser()
-    setUser({
-      ...user,
-      followers : isFollowing? user.followers.filter((follower)=>follower!==authUser.userId) : [authUser.userId,...user.followers]
-    })
+    await handleFollowUser()
+    // setUser({
+    //   ...user,
+    //   followers : isFollowing? user.followers.filter((follower)=>follower!==authUser.userId) : [authUser.userId,...user.followers]
+    // })
 
   }
   return (

@@ -2,14 +2,15 @@ import { Avatar, Flex,Text } from '@chakra-ui/react'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import useGetProfileById from '../Hooks/useGetProfileById'
+import { timeAgo } from '../utils/timeAgo'
 
 function Comment({comment}) {
     const {isLoadind,userProfile} = useGetProfileById(comment.createdBy)
     // console.log('userProfile',userProfile);
   return (
-   <Flex gap={4}>
+   <Flex gap={4} _loading={isLoadind}> 
     <Link to={`/${userProfile?.username}`}>
-        <Avatar src={userProfile?.profilePicUrl} name={userProfile?.username} size={'sm'}/>
+        <Avatar  src={userProfile?.profilePicUrl} name={userProfile?.username} size={'sm'}/>
     </Link>
     <Flex direction={'column'}>
         <Flex gap={2} >
@@ -17,7 +18,7 @@ function Comment({comment}) {
             <Text fontSize={14}>{comment.comment}</Text>
         </Flex>
         <Text fontSize={12} color={'gray'}>
-            {comment.createdAt}
+            {timeAgo(comment.createdAt)}
         </Text>
     </Flex>
    </Flex>
