@@ -14,8 +14,6 @@ function useEditProfile()  {
         if(isUpdating) return;
         const storageRef = ref(storage,`profilePics/${authUser.userId}`)
         const userRef = doc(firestore,'users',authUser.userId)
-        // console.log('authUser',authUser);
-        // console.log('user info',(await getDoc(userRef)).data());
         
         setIsUpdating(true)
         try {

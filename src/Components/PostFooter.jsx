@@ -28,7 +28,7 @@ function PostFooter({username}) {
       <Text fontWeight={700} fontSize={'sm'}>
         {username} {' '}
         <Text fontWeight={400} fontSize={'sm'}>
-          feelings 
+          goooddddd
         </Text>
       </Text>
       <Text fontWeight={700} fontSize={'sm'}>
