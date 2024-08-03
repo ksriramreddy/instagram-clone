@@ -10,7 +10,7 @@ function FeedPost({post}) {
     <Box my={3} overflow={'hidden'} borderRadius={4}>
       <Image src={post.imageUrl} alt='user profile'/>
     </Box>
-    <PostFooter username={'username'}/>
+    <PostFooter post={post} />
     </>
   );
 }
