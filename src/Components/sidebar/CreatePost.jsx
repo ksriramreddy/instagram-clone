@@ -127,10 +127,10 @@ function useCreatePost(){
         newPost.imageUrl  = downloadUrl
         createPost({...newPost,id:newPost.id})
         // dispatch(addPost({...newPost,id:postDocRef.id}))
-        showToast('Success','Post Created Successfully','success')
+        showToast('Post Created Successfully','Post Created Successfully','success')
       } catch (error) {
         console.log(error.message);
-        showToast('Error',error.message,'error')
+        showToast('Unable to create post',error.message,'error')
       }
       finally{
         setIsLoading(false)
