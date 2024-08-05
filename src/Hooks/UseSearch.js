@@ -17,7 +17,7 @@ function UseSearch() {
             })
         } catch (error) {
             ShowToast("Unable to Search",error.message,'error')
-            console.log(error.message);
+            // console.log(error.message);
         }
         finally{
             setIsLoading(false)

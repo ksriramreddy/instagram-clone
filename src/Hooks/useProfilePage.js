@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { firestore } from '../Firebase/Firebase';
 
 export default function useProfilePage(username) {
+    // console.log("abcd",username);
+    
     const [isLoading,setIsLoading] = useState(true)
     const [userProfile,setUserProfile] = useState(null);
     const getUserProfile =  async()=>{
@@ -12,9 +14,15 @@ export default function useProfilePage(username) {
             const querySnapshot = await getDocs(q)
             // console.log('bi',querySnapshot.docs[0].data());
             setUserProfile(querySnapshot.docs[0].data())
-            setIsLoading(false)
+            
+            
         } catch (error) {
             console.log(error.message);
+        }
+        finally{
+            setIsLoading(false)
+            // console.log("kajsnx",userProfile);
+            
         }
     }
     useEffect(()=>{

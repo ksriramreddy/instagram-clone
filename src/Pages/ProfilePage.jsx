@@ -6,9 +6,12 @@ import ProfilePosts from '../Components/ProfilePosts';
 import useProfilePage from '../Hooks/useProfilePage';
 import {useParams} from 'react-router-dom';
 function ProfilePage() {
+
   const {username} = useParams()
+  console.log(username);
+  
   const {isLoading,userProfile} = useProfilePage(username)
-  // console.log(username);
+  // console.log("kjn",userProfile);
   if(isLoading){
     return (
       <Flex width={'full'} >

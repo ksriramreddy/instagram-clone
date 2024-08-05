@@ -27,7 +27,7 @@ function useDeletePost() {
             
         } catch (error) {
             showToast('Unable Delete Post',error.message,'error')
-            console.log(error.message);
+            // console.log(error.message);
         }
         finally{
             setIsDeleting(false)

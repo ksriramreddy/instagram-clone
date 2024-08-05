@@ -17,7 +17,7 @@ function useLogin() {
       ] = useSignInWithEmailAndPassword(auth);
       const showToast = useShowToast()
     const userLogin = async (inputs)=>{
-        console.log(inputs);
+        // console.log(inputs);
         if(!inputs.email ||!inputs.password){
             showToast("Enter all required fields","Enter all required fields",'error')
             return;
@@ -39,7 +39,8 @@ function useLogin() {
                 localStorage.setItem('userInfo',JSON.stringify(userDoc.data()))
             }
         } catch (error) {
-            console.log(error.message);
+            showToast("Unable to login")
+            // console.log(error.message);
         }
     }
     return {loading,userLogin,user}

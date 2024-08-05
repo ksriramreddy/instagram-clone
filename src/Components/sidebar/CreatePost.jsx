@@ -26,8 +26,8 @@ function CreatePost() {
         setCaption('')
         setSelectedImage('')
       } catch (error) {
-        showToast('Error',error.message,'error')
-        console.log(error.message);
+        showToast('Unable to create post',error.message,'error')
+        // console.log(error.message);
       }
     }
     

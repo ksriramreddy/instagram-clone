@@ -14,7 +14,7 @@ function GoogleAuth({prefix}) {
     try {
       const newUser = await signInWithGoogle()
       if(!newUser && error){
-        showTost('Error', error,'error');
+        showTost('User not found', error,'error');
         console.log(error);
         return;
       }
@@ -41,7 +41,7 @@ function GoogleAuth({prefix}) {
         dispatch(setUser(JSON.stringify(userDoc)))
     }
     } catch (error) {
-      showTost('Error', error.message,'error');
+      showTost('Unable to login', error.message,'error');
       console.log(error);
     }
   }

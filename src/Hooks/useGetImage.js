@@ -14,7 +14,7 @@ function useGetImage() {
                 setSelectedImage(fileReader.result)
             }
             fileReader.readAsDataURL(file)
-            console.log(selectedImage);
+            // console.log(selectedImage);
         }
         else{
             showToast('Select an image to proceed','select an image only','error')

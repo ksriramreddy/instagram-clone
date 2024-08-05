@@ -38,7 +38,7 @@ function useEditProfile()  {
             setIsUpdating(false)
 
         } catch (error) {
-            console.log(error.message);
+            // console.log(error.message);
             showToast("Unable to edit post",error.message,'error')
         }
     }

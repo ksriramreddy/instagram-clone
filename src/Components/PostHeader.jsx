@@ -11,7 +11,7 @@ function PostHeader({createdBy,createdAt}) {
     const demo = useSelector(state=>state.user);
     const authUser = JSON.parse(demo);
     const {isFollowing,isUpdating,handleFollowUser} = useFollowUser(userProfile?.userId)
-    console.log(isFollowing);
+    // console.log(isFollowing);
     const handleClickFollow = async ()=>{
         await handleFollowUser()
         this.forceUpdate()

@@ -13,7 +13,7 @@ function useGetFeedPosts() {
     const showToast = useShowToast()
    
     useEffect(()=>{
-        console.log("following ",authUser.following);
+        // console.log("following ",authUser.following);
         const getFeedPosts = async ()=>{
             setIsLoding(true);
             if(!authUser) return showToast('Error',"Login before seeing feeds",'error');
@@ -39,7 +39,7 @@ function useGetFeedPosts() {
 
             } catch (error) {
                 showToast('Unable to fetch posts',error.message,'error')
-                console.log(error.message);
+                // console.log(error.message);
             }
             finally{
                 setIsLoding(false)

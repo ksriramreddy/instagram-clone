@@ -22,7 +22,7 @@ function useSignUpWithEmailPassword() {
         }
         const q = query(collection(firestore, "users"), where('username', "==", inputs.username));
         const querySnapshot = await getDocs(q);
-        console.log("querySnapshot", querySnapshot);
+        // console.log("querySnapshot", querySnapshot);
         if(!querySnapshot.empty){
             showToast("Username already exists","Username already exists",'error')
             // console.log('user already exists');

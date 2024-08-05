@@ -6,6 +6,8 @@ import useFollowUser from '../Hooks/useFollowUser';
 import {useParams} from 'react-router-dom'
 function ProfileHeader({userProfile,isLoading}) {
     let authUser = useSelector(state=>state.user)
+    // console.log(userProfile);
+    
     authUser = JSON.parse(authUser)
     const { isOpen, onOpen, onClose } = useDisclosure()
     const {isFollowing,isUpdating,handleFollowUser}= useFollowUser(userProfile.userId)

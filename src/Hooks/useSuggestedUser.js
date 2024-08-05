@@ -29,7 +29,7 @@ function useSuggestedUser() {
                 setSuggestedUsers(users)
             } catch (error) {
                 showTost('Unable to load suggested users',error.message,'error')
-                console.log(error.message);
+                // console.log(error.message);
             }
             finally{
                 setIsLoading(false)

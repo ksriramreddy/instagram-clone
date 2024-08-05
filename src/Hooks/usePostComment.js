@@ -32,7 +32,7 @@ function usePostComment() {
 
         } catch (error) {
             showToast('Unable post your comment',error.message,'error')
-            console.log(error.message);
+            // console.log(error.message);
         }   
         finally{
             setIsCommenting(false)

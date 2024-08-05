@@ -16,7 +16,7 @@ function useLogout() {
             dispatch(clearUser())
         } catch (error) { 
             showToast('Unable to logout',error.message,'error');
-            console.log(error.message);
+            // console.log(error.message);
         }
     }
     return {

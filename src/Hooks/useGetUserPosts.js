@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import usePostsStore from '../store/postStore'
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { firestore } from '../Firebase/Firebase';
+import { useParams } from 'react-router-dom';
 
 
 function useGetUserPosts() {
@@ -15,6 +16,12 @@ function useGetUserPosts() {
     const dispatch = useDispatch()
     // const posts = useSelector(state => state.posts)
     const setPosts = usePostsStore(state=>state.setPosts)
+    //////////
+    const {username} = useParams()
+    // console.log("username",username);
+    
+    
+    //////////
     const posts = usePostsStore()
     useEffect(()=>{
         const getPosts = async()=>{
@@ -31,7 +38,7 @@ function useGetUserPosts() {
              posts.sort((a,b)=>{a.createdAt - b.createdAt})
             //  dispatch(setPosts(posts))
             setPosts(posts)
-             console.log('kj',posts);
+            //  console.log('kj',posts);
             } catch (error) {
                 showToast('Unable to get posts: ',error.message,'error')
                 setPosts([])

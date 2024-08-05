@@ -37,7 +37,7 @@ function useLikePost(post) {
         setLikesCount(isLiked? likesCount - 1 : likesCount + 1);
        } catch (error) {
         showToast('unable to like/unlike',error.message,'error')
-        console.log(error.message);
+        // console.log(error.message);
        }
        finally{
         setIsUpdating(false)

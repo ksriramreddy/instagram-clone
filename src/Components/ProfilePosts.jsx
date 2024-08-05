@@ -30,8 +30,7 @@ function ProfilePosts() {
       {
         !isLoading && (posts.map((post,i)=>
           <ProfilePost post={post} key={i}/>
-        )
-        )
+        ))
       }
     </Grid>
   );
