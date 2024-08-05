@@ -91,7 +91,8 @@ function ProfilePost({post}) {
 										</Text>
                                     </Flex>
 
-                                    { authUser.userId==post.createdBy && <Button
+                                    { authUser.userId==post.createdBy && 
+                                    <Button
 											size={"sm"}
 											bg={"transparent"}
 											_hover={{ bg: "whiteAlpha.300", color: "red.600" }}
@@ -101,10 +102,14 @@ function ProfilePost({post}) {
 											onClick={()=>deleteUserPost(post.id)}
 											isLoading={isDeleting}
 										>
-											<MdDelete size={20} cursor='pointer' />
-										</Button>}
-                                        </Flex>
+										<MdDelete size={20} cursor='pointer' />
+									</Button>}
+                                </Flex>
+                                <Flex fontFamily={'revert'} textAlign={'center'}>
+                                {post.caption && <Text> {post.caption   }</Text>}
+                                </Flex>
                                         <Divider my={4} bg={"gray.500"} />
+                                        
 
                             <VStack w='full' alignItems={"start"} maxH={"350px"} overflowY={"auto"}>
                                 {
@@ -113,14 +118,13 @@ function ProfilePost({post}) {
                                     ))
                                 }
                             {/* CAPTION */}
-                            {post.caption && <Caption post={post} />}
+                            
                             {/* COMMENTS */}
                             {/* {post.comments.map((comment) => (
                                 <Comment key={comment.id} comment={comment} />
                             ))} */}
                         </VStack>
                         <Divider my={4} bg={"gray.8000"} />
-
                         <CommenrFooter post={post}/>
                     </Flex>
                 </Flex>

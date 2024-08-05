@@ -33,7 +33,7 @@ function PageLayout({children}) {
         {
           navbarRender ? <Navbar/> : null
         }
-        <Box w={{base:'calc(100% - 70px)',md:'calc(100% - 240px)'}} mx={'auto'}>
+        <Box w={{base:'calc(100% - 70px)',md:'calc(100% - 240px)'}} mx={'auto'} backgroundColor={'black'}>
             {children}
         </Box>  
     </Flex>

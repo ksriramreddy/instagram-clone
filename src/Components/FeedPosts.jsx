@@ -5,7 +5,7 @@ import useGetFeedPosts from '../Hooks/useGetFeedPosts';
 function FeedPosts() {
   const [isLoading,setIsLoading] = useState(true)
   const {isFetching,feedPosts} =useGetFeedPosts();
-  !isFetching && console.log('feedpostd',feedPosts);
+  // !isFetching && console.log('feedpostd',feedPosts);
   // !isFetching && feedPosts.map(feedPost => {console.log(feedPost.createdAt);})
   useEffect(()=>{
     setTimeout(() => {
@@ -36,10 +36,6 @@ function FeedPosts() {
       }
       {
         !isFetching && <>
-        {/* <FeedPost img={'/img1.png'} username={'sriram'}/>
-        <FeedPost  img={'/img2.png'} username={'reddy'}/>
-        <FeedPost  img={'/img3.png'} username={'ganesh'}/>
-        <FeedPost  img={'/img4.png'} username={'ssatya'}/> */}
         {
           feedPosts.map(post=><FeedPost post={post} key={post.id}/>)
         }

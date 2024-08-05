@@ -55,7 +55,7 @@ function Sidebar() {
                 mt={'auto'}
                 >
                   <BiLogOut/>
-                  <Button variant={'ghost'} _hover={{bg:'transparent'}}  isLoading={loading} display={{base:'none',md:'block'}}>
+                  <Button variant={'ghost'} _hover={{bg:'transparent'}} color={'white'} isLoading={loading} display={{base:'none',md:'block'}}>
                     Logout
                   </Button>
                 </Flex>
