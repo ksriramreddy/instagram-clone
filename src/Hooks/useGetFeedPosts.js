@@ -38,7 +38,7 @@ function useGetFeedPosts() {
             setFeedPosts(posts.sort((a,b)=>b.createdAt - a.createdAt))
 
             } catch (error) {
-                showToast('Error',error.message,'error')
+                showToast('Unable to fetch posts',error.message,'error')
                 console.log(error.message);
             }
             finally{

@@ -15,8 +15,8 @@ function usePostComment() {
     const [isCommenting,setIsCommenting] = useState(false)
     const handlePostComment = async (postId,comment)=>{
         if(isCommenting) return
-        if(!comment) return showToast('Error','comment something to post...','error')
-        if(!authUser) return showToast('Error','Please Login before commenting','error')
+        if(!comment) return showToast('comment something to post...','comment something to post...','error')
+        if(!authUser) return showToast('Please Login before commenting','Please Login before commenting','error')
         setIsCommenting(true)
         const newComment ={
             comment : comment,
@@ -31,7 +31,7 @@ function usePostComment() {
             addComment(postId,newComment)
 
         } catch (error) {
-            showToast('Error',error.message,'error')
+            showToast('Unable post your comment',error.message,'error')
             console.log(error.message);
         }   
         finally{

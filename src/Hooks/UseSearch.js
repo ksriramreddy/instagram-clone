@@ -16,7 +16,7 @@ function UseSearch() {
                 setUser(doc.data())
             })
         } catch (error) {
-            ShowToast("Error",error.message,'error')
+            ShowToast("Unable to Search",error.message,'error')
             console.log(error.message);
         }
         finally{

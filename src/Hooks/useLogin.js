@@ -19,7 +19,7 @@ function useLogin() {
     const userLogin = async (inputs)=>{
         console.log(inputs);
         if(!inputs.email ||!inputs.password){
-            showToast("error","Enter all required fields",'error')
+            showToast("Enter all required fields","Enter all required fields",'error')
             return;
         }
         try {

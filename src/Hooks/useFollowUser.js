@@ -5,11 +5,13 @@ import { firestore } from '../Firebase/Firebase';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../store/userAccount';
 import useProfilePage from './useProfilePage';
+import useShowToast from './useTost';
 function useFollowUser(userId) {
     const [isUpdating,setIsUpdating] = useState(false);
     const [isFollowing,setIsFollowing] = useState(false);
     const demoUser = useSelector(state=>state.user)
     const user = JSON.parse(demoUser)
+    const showToast = useShowToast()
     // console.log(user)
     const {userProfile} = useProfilePage(user.username)
     const dispatch = useDispatch()
@@ -65,6 +67,7 @@ function useFollowUser(userId) {
             }
         } catch (error) {
             // console.log("follow",error.message);
+            showToast("Unable to follow/unfollow",error.message,'error')
         }
         finally{
             setIsUpdating(false)

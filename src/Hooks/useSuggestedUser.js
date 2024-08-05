@@ -28,7 +28,7 @@ function useSuggestedUser() {
                 // console.log(users);
                 setSuggestedUsers(users)
             } catch (error) {
-                showTost('Error',error.message,'error')
+                showTost('Unable to load suggested users',error.message,'error')
                 console.log(error.message);
             }
             finally{

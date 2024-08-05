@@ -15,7 +15,7 @@ function useLogout() {
             localStorage.removeItem('userInfo')
             dispatch(clearUser())
         } catch (error) { 
-            showToast('error',error.message,'error');
+            showToast('Unable to logout',error.message,'error');
             console.log(error.message);
         }
     }

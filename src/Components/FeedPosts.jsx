@@ -24,6 +24,7 @@ function FeedPosts() {
                 <Skeleton height={2} w={200}/>
                 <Skeleton height={2} w={200}/>
               </VStack>
+              
             </Flex>
             <Skeleton w={'full'}>
               <Box h={500}>

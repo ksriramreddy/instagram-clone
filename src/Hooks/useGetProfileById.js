@@ -20,7 +20,7 @@ function useGetProfileById(userId) {
                 }
                 setUserProfile(userDoc.data());
             } catch (error) {
-                showToast('Error',error.message,'error');
+                showToast('Unable to load profile',error.message,'error');
             }finally{
                 setIsLoading(false);
             }

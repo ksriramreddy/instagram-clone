@@ -33,13 +33,13 @@ function useEditProfile()  {
             await updateDoc(userRef,updatedUser)
             localStorage.setItem("userInfo",JSON.stringify(updatedUser))
             dispatch(setUser(JSON.stringify(updatedUser)))
-            showToast('success' , 'Updated Successfully','success')
+            showToast('Profile Edited Successfully' , 'Updated Successfully','success')
             onClose()
             setIsUpdating(false)
 
         } catch (error) {
             console.log(error.message);
-            showToast("error",error.message,'error')
+            showToast("Unable to edit post",error.message,'error')
         }
     }
     return {setUserDetails,isUpdating}
