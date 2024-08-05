@@ -17,7 +17,7 @@ function useGetImage() {
             console.log(selectedImage);
         }
         else{
-            showToast('error','select an image only','error')
+            showToast('Select an image to proceed','select an image only','error')
         }
     }
     return {

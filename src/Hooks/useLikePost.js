@@ -36,7 +36,7 @@ function useLikePost(post) {
         setIsLiked(isLiked? false : true);
         setLikesCount(isLiked? likesCount - 1 : likesCount + 1);
        } catch (error) {
-        showToast('Error',error.message,'error')
+        showToast('unable to like/unlike',error.message,'error')
         console.log(error.message);
        }
        finally{

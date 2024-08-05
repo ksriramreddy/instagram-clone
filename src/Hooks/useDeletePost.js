@@ -23,10 +23,10 @@ function useDeletePost() {
             await updateDoc(userRef,{posts:arrayRemove(postId)})
             await deleteDoc(doc(firestore,'posts',postId))
             deletePost(postId)
-            showToast('Success','Deleted post','success')
+            showToast('Post Deleted Successfully','Deleted post','success')
             
         } catch (error) {
-            showToast('Error',error.message,'error')
+            showToast('Unable Delete Post',error.message,'error')
             console.log(error.message);
         }
         finally{

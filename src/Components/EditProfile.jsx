@@ -54,6 +54,8 @@ import useGetImage from '../Hooks/useGetImage';
       borderRadius={'10px'}
       zIndex={1}
       p={10}
+      backgroundColor={'black'}
+      backdropBlur={1}
       >
         <Flex flexDirection={'column'} gap={2}>
           <Button bg={'transparent'} _hover={{bg:'transparent'}} alignSelf={'flex-end'} onClick={onClose}>

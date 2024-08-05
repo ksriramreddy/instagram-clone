@@ -33,7 +33,7 @@ function useGetUserPosts() {
             setPosts(posts)
              console.log('kj',posts);
             } catch (error) {
-                showToast('Error: ',error.message,'error')
+                showToast('Unable to get posts: ',error.message,'error')
                 setPosts([])
             }
             finally{

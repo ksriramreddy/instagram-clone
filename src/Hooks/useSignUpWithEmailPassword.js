@@ -17,22 +17,23 @@ function useSignUpWithEmailPassword() {
       const showToast = useShowToast()
     const signUp = async (inputs)=>{
         if(!inputs.username || !inputs.password || !inputs.email || !inputs.fullname){
-            showToast("error","Enter all required fields",'error')
+            showToast("Enter all required fields","Enter all required fields",'error')
             return;
         }
         const q = query(collection(firestore, "users"), where('username', "==", inputs.username));
         const querySnapshot = await getDocs(q);
         console.log("querySnapshot", querySnapshot);
         if(!querySnapshot.empty){
-            showToast("error","Username already exists",'error')
-            console.log('user already exists');
+            showToast("Username already exists","Username already exists",'error')
+            // console.log('user already exists');
             return;
         }
         try {
             
             const newUser = await createUserWithEmailAndPassword(inputs.email,inputs.password)
             if(!newUser && error){
-                showToast("error",error.message,'error')
+                showToast("Unable to create accoount",error.message,'error')
+                showToast("please try again",error.message,'error')
                 return
             }
             if(newUser){
@@ -52,8 +53,9 @@ function useSignUpWithEmailPassword() {
                 localStorage.setItem("userInfo",JSON.stringify(userDoc))
                 dispatch(setUser(userDoc))
             }
+            showToast("Account created successfully",error,'success')
         } catch (error) {
-            showToast("error",error,'error')
+            showToast("Unable to create Account",error,'error')
         }
     }
     return {loading,error,signUp}

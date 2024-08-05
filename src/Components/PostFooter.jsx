@@ -32,10 +32,14 @@ function PostFooter({post}) {
       <Text fontWeight={800} fontSize={'sm'}>
         {likesCount} likes
       </Text >
+<<<<<<< HEAD
       <Flex width={'100%'}>
 
       <CommentSection comments={post.comments} postId={post.id}/>
       </Flex>
+=======
+      
+>>>>>>> 03b65342cfb1d641f3859ead22abb5bedf726845
     </Box>
   );
 }
