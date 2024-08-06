@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { firestore } from '../Firebase/Firebase';
 
 export default function useProfilePage(username) {
-    // console.log("abcd",username);
     
     const [isLoading,setIsLoading] = useState(true)
     const [userProfile,setUserProfile] = useState(null);
@@ -12,23 +11,32 @@ export default function useProfilePage(username) {
             // console.log('username',username);
             const q = query(collection(firestore,'users'),where('username','==',username))
             const querySnapshot = await getDocs(q)
+
+            if (querySnapshot.empty) return setUserProfile(null);
+
+				let userDoc;
+				querySnapshot.forEach((doc) => {
+					userDoc = doc.data();
+				});
+
+				setUserProfile(userDoc);
             // console.log('bi',querySnapshot.docs[0].data());
-            setUserProfile(querySnapshot.docs[0].data())
+            // setUserProfile(querySnapshot.docs[0].data())
             
+            console.log("kajsnx",userDoc);
             
         } catch (error) {
             console.log(error.message);
         }
         finally{
             setIsLoading(false)
-            // console.log("kajsnx",userProfile);
             
         }
     }
     useEffect(()=>{
         setIsLoading(true);
         getUserProfile()
-    },[])
+    },[username])
 
     return {isLoading,userProfile}
 }

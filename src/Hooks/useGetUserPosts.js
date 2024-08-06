@@ -8,7 +8,7 @@ import { firestore } from '../Firebase/Firebase';
 import { useParams } from 'react-router-dom';
 
 
-function useGetUserPosts() {
+function useGetUserPosts(userId) {
     const [isLoading, setIsLoading] = useState(false)
     const showToast = useShowToast()
     const demo = useSelector(state=>state.user)
@@ -17,7 +17,7 @@ function useGetUserPosts() {
     // const posts = useSelector(state => state.posts)
     const setPosts = usePostsStore(state=>state.setPosts)
     //////////
-    const {username} = useParams()
+    // const {username} = useParams()
     // console.log("username",username);
     
     
@@ -29,7 +29,7 @@ function useGetUserPosts() {
             setIsLoading(true)
             setPosts([])
             try {
-             const q = query(collection(firestore,'posts'),where('createdBy','==',authUser.userId))
+             const q = query(collection(firestore,'posts'),where('createdBy','==',authUser.userId==userId? authUser.userId : userId))
              const querySnapshot = await getDocs(q)   
              const posts = []
              querySnapshot.forEach((doc)=>{

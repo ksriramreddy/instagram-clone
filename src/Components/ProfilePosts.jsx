@@ -4,10 +4,10 @@ import ProfilePost from './ProfilePost';
 import useGetUserPosts from '../Hooks/useGetUserPosts';
 import { useSelector } from 'react-redux';
 import usePostsStore from '../store/postStore';
-function ProfilePosts() {
+function ProfilePosts({userProfile}) {
   const[loading,setLoading] = useState(false)
-  const {isLoading} = useGetUserPosts()
-  const posts = usePostsStore(state=>state.posts )
+  const {isLoading} = useGetUserPosts(userProfile.userId)
+  const posts = usePostsStore(state=>state.posts)
   const noPostsFound = !isLoading && posts.length ==0 
   if(noPostsFound) return <NoPostsFound/>
   

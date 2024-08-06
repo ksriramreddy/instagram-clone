@@ -8,7 +8,7 @@ import {useParams} from 'react-router-dom';
 function ProfilePage() {
 
   const {username} = useParams()
-  console.log(username);
+  // console.log(username);
   
   const {isLoading,userProfile} = useProfilePage(username)
   // console.log("kjn",userProfile);
@@ -42,7 +42,7 @@ function ProfilePage() {
         direction={'column'}>
 
             <ProfileTabs/>
-            <ProfilePosts/>
+            <ProfilePosts userProfile={userProfile}/>
             
         </Flex>
     </Container>
