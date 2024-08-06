@@ -40,18 +40,18 @@ function Search() {
       </Tooltip>
       <Modal isOpen={isOpen} onClose={onClose} motionPreset='slideInLeft'>
         <ModalOverlay />
-        <ModalContent maxW={'400px'} border={'1px solid white'} borderRadius={'10px'}>
+        <ModalContent maxW={'400px'} border={'1px solid white'} borderRadius={'10px'} backgroundColor={'black'}>
           <ModalHeader>Search User</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>
-            <Input placeholder='Search User' ref={searchRef}/>
+          <ModalBody >
+            <Input placeholder='Search User' ref={searchRef} mb={'4'}/>
             { user && <SuggestedUser user={user} onClose={onClose} setUser={setUser}/>}
           </ModalBody>
           <ModalFooter>
             <Button type='submit' colorScheme='blue' mr={3} onClick={handleSearchUser}>
               Search
             </Button>
-          </ModalFooter>
+          </ModalFooter> 
         </ModalContent>
       </Modal>
     </>

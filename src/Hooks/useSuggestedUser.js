@@ -18,7 +18,7 @@ function useSuggestedUser() {
             setIsLoading(true)
             try {
                 const userRef =  collection(firestore,'users')
-                const q = query(userRef,where('userId','not-in',[authUser.userId , ...authUser.following]),limit(5))
+                const q = query(userRef,where('userId','not-in',[authUser.userId , ...authUser.following]),limit(10))
                 const querySnapshot = await getDocs(q)
                 let users = [];
                 querySnapshot.forEach((doc)=>{
@@ -29,7 +29,7 @@ function useSuggestedUser() {
                 setSuggestedUsers(users)
             } catch (error) {
                 showTost('Unable to load suggested users',error.message,'error')
-                // console.log(error.message);
+                console.log(error.message);
             }
             finally{
                 setIsLoading(false)

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {Box, Button, Flex, Grid, Skeleton, Text, VStack} from '@chakra-ui/react'
+import {Box, Button, Flex, Grid, Image, Skeleton, Text, VStack} from '@chakra-ui/react'
 import ProfilePost from './ProfilePost';
 import useGetUserPosts from '../Hooks/useGetUserPosts';
 import { useSelector } from 'react-redux';
@@ -28,7 +28,7 @@ function ProfilePosts({userProfile}) {
         ))
       }
       {
-        !isLoading && (posts.map((post,i)=>
+        !isLoading &&  (posts.map((post,i)=>
           <ProfilePost post={post} key={i}/>
         ))
       }
@@ -41,8 +41,7 @@ export default ProfilePosts;
 function NoPostsFound(){
   return (
     <Box textAlign={'center'}>
-      <Text fontSize={20} fontWeight={600}>No Posts Yet</Text>
-      <Text fontSize={20} fontWeight={'100'} fontStyle={'italic'}>Create Your First Post</Text>
+      <Image src="public/nopostsyet.png"/>
     </Box>
   )
  
