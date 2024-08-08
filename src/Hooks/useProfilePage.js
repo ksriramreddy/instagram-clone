@@ -23,7 +23,7 @@ export default function useProfilePage(username) {
             // console.log('bi',querySnapshot.docs[0].data());
             // setUserProfile(querySnapshot.docs[0].data())
             
-            console.log("kajsnx",userDoc);
+            // console.log("kajsnx",userDoc);
             
         } catch (error) {
             console.log(error.message);

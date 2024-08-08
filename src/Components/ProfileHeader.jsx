@@ -79,7 +79,7 @@ function ProfileHeader({userProfile,isLoading}) {
                     {userProfile.fullname}
                     </Text>
                 </Flex>
-                <Text alignItems={'center'} gap={3} fontSize={'bold'}>
+                <Text alignItems={'center'} gap={3} fontSize={'bold'} maxW={'350px'}>
                     {userProfile.bio}
                     </Text>
             </VStack>

@@ -1,8 +1,37 @@
-# React + Vite
+# Instagram Clone Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is an Instagram clone website developed using ReactJS and JavaScript for the frontend, and Firebase for the backend. It includes features like user authentication, data storage for user profiles, and user posts.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- User authentication (Sign Up, Login, Logout)
+- Posting photos with captions
+- Viewing a feed of posts from all users
+- Liking and commenting on posts
+- Real-time updates using Firebase
+- Responsive design for mobile and desktop
+
+<img src="projectPics/img1.png" alt=""/>
+<img src="projectPics/img2.png" alt=""/>
+<img src="projectPics/img3.png" alt=""/>
+<img src="projectPics/img4.png" alt=""/>
+
+## Tech Stack
+
+- **Frontend:**
+  - ReactJS
+  - JavaScript
+  - Chakra UI
+  - Redux Toolkit
+  - React Router DOM
+- **Backend:**
+  - Firebase Authentication
+  - Firebase Firestore (Database)
+  - Firebase Storage (Image Storage)
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ksriramreddy/instagram-clone.git
+   cd instagram-clone

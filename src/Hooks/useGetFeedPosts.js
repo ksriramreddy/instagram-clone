@@ -13,7 +13,7 @@ function useGetFeedPosts() {
     const showToast = useShowToast()
    
     useEffect(()=>{
-        // console.log("following ",authUser.following);
+        console.log("following ",authUser.following);
         const getFeedPosts = async ()=>{
             setIsLoding(true);
             if(!authUser) return showToast('Error',"Login before seeing feeds",'error');
@@ -36,6 +36,8 @@ function useGetFeedPosts() {
             // console.log(posts);
             // posts.map(post=>{console.log(post);})
             setFeedPosts(posts.sort((a,b)=>b.createdAt - a.createdAt))
+            console.log("posts",posts);
+            
 
             } catch (error) {
                 showToast('Unable to fetch posts',error.message,'error')
@@ -47,7 +49,7 @@ function useGetFeedPosts() {
         }
         getFeedPosts();
         // console.log(feedPosts);
-    },[])
+    },[demo])
   return{
     isFetching,
     feedPosts

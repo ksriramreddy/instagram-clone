@@ -7,9 +7,12 @@ function FeedPosts() {
   const {isFetching,feedPosts} =useGetFeedPosts();
   // !isFetching && console.log('feedpostd',feedPosts);
   // !isFetching && feedPosts.map(feedPost => {console.log(feedPost.createdAt);})
-  if(!feedPosts == 0){
-    return noFeeds()
-  }
+  // // if(!feedPosts == 0){
+  //   return noFeeds()
+  // }
+
+  console.log(feedPosts);
+  
 
   return (
     <Container maxW={'container.sm'} py={10} px={2}>
