@@ -8,7 +8,7 @@ function Login() {
           email:'',
           password:''
         })
-    const {loading,userLogin} = useLogin()
+    const {isLoading,userLogin} = useLogin()
   return (
     <>
         <Input placeholder='Email' type='email' fontSize={14} value={inputs.email}
@@ -17,7 +17,7 @@ function Login() {
         value={inputs.password} 
         onChange={(e)=>setInputs({...inputs,password:e.target.value})}
         />
-        <Button w={'full'} colorScheme='blue' size={'sm'} fontSize={14} onClick={()=>userLogin(inputs)}>
+        <Button w={'full'} colorScheme='blue' size={'sm'} fontSize={14} onClick={()=>userLogin(inputs)} isLoading={isLoading}>
           Login
         </Button>
     </>

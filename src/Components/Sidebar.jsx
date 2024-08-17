@@ -17,33 +17,37 @@ function Sidebar() {
   
   
   return (
-    <Box
-    bg={'black'}
-    height={'100vh'}
+    <Flex
+    backgroundColor={'black'}
+    zIndex={1}
+    height={'80px'}
     borderRight={'1px solid black'} 
     py={8}
-    position={'sticky'}
-    top={0}
+    position={{base:'fixed',sm:"sticky"}}
+    top={{base:"92%",sm:0}}
     left={0}
     px={{base:2,md:4}}
-    color={'white'}
+    color={'black'}
+    flexDirection={'row'}
+    alignItems={'center'}
+    justifyContent={'flex-start'}
     >
-      <Flex direction={'column'}gap={10} w={'full'} height={'full'}>
+      <Flex direction={{base:'row',sm:'column'}}gap={10} w={'full'} height={{base:"max-content",sm:'full'}} >
         <Link as={RouterLink} to={'/'} pl={2} display={{base:'none',md:'block'}} cursor={'pointer'}>
           <InstagramLogo/>
         </Link>
-        <Link as={RouterLink} to={'/'} p={2} display={{base:'block',
+        <Link as={RouterLink} to={'/'} p={2} display={{base:'none',
         md:'none'}} cursor={'pointer'}
         borderRadius={6} _hover={{
-          bg:'whiteAlpha.200',
+          bg:'whiteAlpha.200',      
         }}
         w={10}>
           <InstagramMobileLogo/>
         </Link>
-        <Flex direction={'column'} gap={5} cursor={'pointer'} color={'white'} >
+        <Flex direction={{base:'row',sm:'column'}} gap={5} cursor={'pointer'} color={'white'} backgroundColor={'black'} width={"100"}>
           <SidebarItems/>
         </Flex>
-        <Tooltip hasArrow label={'Logout'} placement='right' ml={1} openDelay={500} display={{base:'block',md:'none'}} color={'white'}>
+        <Tooltip hasArrow label={'Logout'} placement='right' ml={1} openDelay={500} display={{base:'block',md:'none'}} color={'white'} justifyContent={'center'} alignItems={'center'}>
                 <Flex display={'flex'}
                 onClick={handleLogout}
                 alignItems={'center'}
@@ -61,7 +65,7 @@ function Sidebar() {
                 </Flex>
               </Tooltip>
       </Flex>
-    </Box>
+    </Flex>
   );
 }
 

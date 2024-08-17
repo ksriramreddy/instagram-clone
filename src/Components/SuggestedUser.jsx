@@ -22,6 +22,9 @@ const SuggestedUser = ({user,onClose,setUser}) => {
   return (
     <Flex key={user.userId} justifyContent={'space-between'} alignItems={'center'} w={'full'}
     >
+      <Box onClick={onClose}>
+
+      
       <Link to={`/${user.username}`}>
       <Flex alignItems={  'center'} gap={2}>
         
@@ -36,6 +39,7 @@ const SuggestedUser = ({user,onClose,setUser}) => {
         </VStack>
       </Flex>
       </Link>
+      </Box>
 
       {
         authUser.userId !== user.userId &&

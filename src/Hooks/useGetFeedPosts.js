@@ -13,7 +13,7 @@ function useGetFeedPosts() {
     const showToast = useShowToast()
    
     useEffect(()=>{
-        console.log("following ",authUser.following);
+        // console.log("following ",authUser.following);
         const getFeedPosts = async ()=>{
             setIsLoding(true);
             if(!authUser) return showToast('Error',"Login before seeing feeds",'error');
@@ -23,7 +23,7 @@ function useGetFeedPosts() {
                 return;
             }
             const colloc = collection(firestore,"posts");
-            const wher = where('createdBy','in',authUser.following)
+            const wher = where('createdBy','in',[...authUser.following,authUser.userId])
             const q =  query(colloc,wher);
             try {
                 
@@ -36,7 +36,7 @@ function useGetFeedPosts() {
             // console.log(posts);
             // posts.map(post=>{console.log(post);})
             setFeedPosts(posts.sort((a,b)=>b.createdAt - a.createdAt))
-            console.log("posts",posts);
+            // console.log("posts",posts);
             
 
             } catch (error) {

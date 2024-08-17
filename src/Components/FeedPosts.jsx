@@ -11,7 +11,7 @@ function FeedPosts() {
   //   return noFeeds()
   // }
 
-  console.log(feedPosts);
+  // console.log(feedPosts);
   
 
   return (

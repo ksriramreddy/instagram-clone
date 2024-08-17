@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth, firestore } from '../Firebase/Firebase';
 import useShowToast from './useTost';
@@ -12,9 +12,9 @@ function useLogin() {
     const [
         signInWithEmailAndPassword,
         user,
-        loading,
         error,
       ] = useSignInWithEmailAndPassword(auth);
+      const [isLoading,setIsLoading] = useState(false)
       const showToast = useShowToast()
     const userLogin = async (inputs)=>{
         // console.log(inputs);
@@ -23,6 +23,7 @@ function useLogin() {
             return;
         }
         try {
+            setIsLoading(true)
             const user = await signInWithEmailAndPassword(inputs.email,inputs.password);
             if(!user && error){
                 showToast("error",error.message,'error')
@@ -42,8 +43,11 @@ function useLogin() {
             showToast("Unable to login")
             // console.log(error.message);
         }
+        finally{
+            setIsLoading(false)
+        }
     }
-    return {loading,userLogin,user}
+    return {isLoading,userLogin,user}
 }
 
 export default useLogin;

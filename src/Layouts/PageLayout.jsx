@@ -22,7 +22,7 @@ function PageLayout({children}) {
       )
     }
   return (
-    <Flex flexDirection={navbarRender? 'column' : 'row'}>
+    <Flex flexDirection={{base:"column-reverse",sm:navbarRender? 'column' : 'row'}} backgroundColor={'black'}>
         {
            sidebarRender ? (
                 <Box w={{base:'70px',md:'240px'}}>
@@ -33,7 +33,7 @@ function PageLayout({children}) {
         {
           navbarRender ? <Navbar/> : null
         }
-        <Box w={{base:'calc(100% - 70px)',md:'calc(100% - 240px)'}} mx={'auto'} backgroundColor={'black'}>
+        <Box w={{base:'100%',md:'calc(100% - 240px)'}} mx={'auto'} backgroundColor={'black'}>
             {children}
         </Box>  
     </Flex>

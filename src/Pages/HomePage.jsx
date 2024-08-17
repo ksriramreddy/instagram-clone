@@ -10,8 +10,11 @@ function HomePage() {
           <FeedPosts/>
         </Box>
         <Box flex={3} mr={20}
-        display={{base:'none',lg:'block'}}
+        display={{base:'none',lg:'block'} }
         maxW={300}
+        // position={'fixed'}
+        // top={0}
+        // left={'65%'}
         >
           <SuggestedUsers/>
         </Box>
